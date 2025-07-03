@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sathya Sai 100 Theme Playground</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 2rem;
+    }
+    .color-swatch {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      margin-right: 1rem;
+      border: 1px solid #e5e5e5;
+    }
+    .gradient-box {
+      width: 200px;
+      height: 40px;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border: 1px solid #e5e5e5;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      max-width: 400px;
+    }
+    .input {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid #d4d4d4;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sathya Sai 100 Theme Playground</h1>
+  <h2>Color Palette</h2>
+  <div id="colors"></div>
+
+  <h2>Gradients</h2>
+  <div id="gradients"></div>
+
+  <h2>Components</h2>
+  <div class="card">
+    <h3>Card Component</h3>
+    <input class="input" placeholder="Input component" />
+    <br />
+    <button class="btn" id="primaryBtn">Primary Button</button>
+    <button class="btn" id="secondaryBtn">Secondary Button</button>
+    <button class="btn" id="accentBtn">Accent Button</button>
+  </div>
+
+  <script type="module">
+    import { theme, colorCombinations, componentColors } from './dist/index.esm.js';
+
+    // Render color palette
+    const colorsDiv = document.getElementById('colors');
+    Object.entries(theme).forEach(([family, scale]) => {
+      if (typeof scale === 'object') {
+        const familyTitle = document.createElement('h4');
+        familyTitle.textContent = family.charAt(0).toUpperCase() + family.slice(1);
+        colorsDiv.appendChild(familyTitle);
+        Object.entries(scale).forEach(([shade, value]) => {
+          const swatchRow = document.createElement('div');
+          swatchRow.className = 'color-swatch';
+          const swatch = document.createElement('div');
+          swatch.className = 'swatch';
+          swatch.style.background = value;
+          swatchRow.appendChild(swatch);
+          const label = document.createElement('span');
+          label.textContent = `${family}.${shade}: ${value}`;
+          swatchRow.appendChild(label);
+          colorsDiv.appendChild(swatchRow);
+        });
+      }
+    });
+
+    // Render gradients
+    const gradientsDiv = document.getElementById('gradients');
+    Object.entries(colorCombinations).forEach(([name, value]) => {
+      const gradBox = document.createElement('div');
+      gradBox.className = 'gradient-box';
+      gradBox.style.background = value;
+      gradientsDiv.appendChild(gradBox);
+      const label = document.createElement('div');
+      label.textContent = `${name}: ${value}`;
+      gradientsDiv.appendChild(label);
+    });
+
+    // Style buttons
+    document.getElementById('primaryBtn').style.background = componentColors.button.primary.bg;
+    document.getElementById('primaryBtn').style.color = componentColors.button.primary.text;
+    document.getElementById('secondaryBtn').style.background = componentColors.button.secondary.bg;
+    document.getElementById('secondaryBtn').style.color = componentColors.button.secondary.text;
+    document.getElementById('accentBtn').style.background = componentColors.button.accent.bg;
+    document.getElementById('accentBtn').style.color = componentColors.button.accent.text;
+  </script>
+</body>
+</html> 

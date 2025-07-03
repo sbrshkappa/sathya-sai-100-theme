@@ -1,5 +1,5 @@
 {
-  "name": "@sathya-sai-100/theme",
+  "name": "sathya-sai-100-theme",
   "version": "1.0.0",
   "description": "A comprehensive theme package for Sathya Sai 100 applications with color palettes, gradients, and component styles",
   "main": "dist/index.js",
