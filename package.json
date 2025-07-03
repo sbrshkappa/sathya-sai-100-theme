@@ -1,6 +1,6 @@
 {
   "name": "sathya-sai-100-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A comprehensive theme package for Sathya Sai 100 applications with color palettes, gradients, and component styles",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -31,12 +31,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/sathya-sai-100-theme.git"
+    "url": "git+https://github.com/sbrshkappa/sathya-sai-100-theme.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/sathya-sai-100-theme/issues"
+    "url": "https://github.com/sbrshkappa/sathya-sai-100-theme/issues"
   },
-  "homepage": "https://github.com/yourusername/sathya-sai-100-theme#readme",
+  "homepage": "https://github.com/sbrshkappa/sathya-sai-100-theme#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
